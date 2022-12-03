@@ -94,6 +94,11 @@ def merge_config():
     elif cfg.dataset == 'CurveLanes':
         cfg.row_anchor = np.linspace(0.4, 1, cfg.num_row)
         cfg.col_anchor = np.linspace(0, 1, cfg.num_col)
+    elif cfg.dataset == 'Galaxis':
+        cfg.row_anchor = np.linspace(0.22, 0.9, cfg.num_row)
+        cfg.col_anchor = np.linspace(0, 1, cfg.num_col)
+    else:
+        raise NotImplementedError
     
     return args, cfg
 
@@ -177,7 +182,8 @@ def real_init_weights(m):
             
 import importlib
 def get_model(cfg):
-    return importlib.import_module('model.model_'+cfg.dataset.lower()).get_model(cfg)
+    #return importlib.import_module('model.model_'+cfg.dataset.lower()).get_model(cfg)
+    return importlib.import_module('model.model_tusimple').get_model(cfg)
 
 def get_train_loader(cfg):
     if cfg.dataset == 'CULane':

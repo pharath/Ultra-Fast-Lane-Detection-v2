@@ -68,6 +68,8 @@ if __name__ == "__main__":
         cls_num_per_lane = 18
     elif cfg.dataset == 'Tusimple':
         cls_num_per_lane = 56
+    elif cfg.dataset == 'Galaxis':
+        cls_num_per_lane = 18
     else:
         raise NotImplementedError
 
@@ -97,6 +99,10 @@ if __name__ == "__main__":
         splits = ['test.txt']
         datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
         img_w, img_h = 1280, 720
+    elif cfg.dataset == 'Galaxis':
+        splits = ['test.txt']
+        datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
+        img_w, img_h = 640, 480
     else:
         raise NotImplementedError
     for split, dataset in zip(splits, datasets):

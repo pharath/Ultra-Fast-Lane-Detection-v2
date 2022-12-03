@@ -1,5 +1,7 @@
-dataset= 'Tusimple'
-data_root= '' # Need to be modified before running
+#dataset= 'Tusimple'
+dataset= 'Galaxis'
+#data_root= 'datasets/tusimple-test' # Need to be modified before running
+data_root= '/home/bra-ket/Desktop/Team_Galaxis/phth/traffic-sign-detection/data/bag_11_19-12_13_14/extracted'
 epoch= 100
 batch_size= 32
 optimizer= 'SGD'
