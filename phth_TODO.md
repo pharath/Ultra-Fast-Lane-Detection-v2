@@ -1,0 +1,1 @@
+- try pre-trained Curvelanes model with galaxis rosbag
